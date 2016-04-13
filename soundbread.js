@@ -16,6 +16,26 @@ function init()
 
   createjs.Sound.addEventListener("fileload", createjs.proxy(soundLoaded, this));
   createjs.Sound.registerSounds(sounds, assetsPath);
+
+  $(".soundItem").click(function() {
+  	//Play the sound: play (src, interrupt, delay, offset, loop, volume, pan)
+  	var instance = createjs.Sound.play($(this).attr('id'));
+  	if (instance == null || instance.playState == createjs.Sound.PLAY_FAILED) {
+  		return;
+  	}
+  	$(this).addClass("active");
+  	instance.addEventListener("complete", function (instance) {
+  		$(this).removeClass("active");
+  	});
+  });
+  
+  // Simple keybinding
+  $(document).keydown(function(e){
+    keyCode = '' + e.which;
+    console.log(keyCode);
+    console.log(typeof keyCode);
+    $('.soundItem[data-keycode="' + keyCode + '"]').click();
+  });
 }
 
 function soundLoaded(event) {
@@ -29,16 +49,4 @@ function stop() {
 		preload.close();
 	}
 	createjs.Sound.stop();
-}
-
-function playSound(target) {
-	//Play the sound: play (src, interrupt, delay, offset, loop, volume, pan)
-	var instance = createjs.Sound.play(target.id);
-	if (instance == null || instance.playState == createjs.Sound.PLAY_FAILED) {
-		return;
-	}
-	target.className = "gridBox active";
-	instance.addEventListener("complete", function (instance) {
-		target.className = "gridBox";
-	});
 }
