@@ -18,22 +18,21 @@ function init()
   createjs.Sound.registerSounds(sounds, assetsPath);
 
   $(".soundItem").click(function() {
+    var self = this;
   	//Play the sound: play (src, interrupt, delay, offset, loop, volume, pan)
-  	var instance = createjs.Sound.play($(this).attr('id'));
+  	var instance = createjs.Sound.play($(self).attr('id'));
   	if (instance == null || instance.playState == createjs.Sound.PLAY_FAILED) {
   		return;
   	}
-  	$(this).addClass("active");
+  	$(self).addClass("active");
   	instance.addEventListener("complete", function (instance) {
-  		$(this).removeClass("active");
+  		$(self).removeClass("active");
   	});
   });
-  
+
   // Simple keybinding
   $(document).keydown(function(e){
     keyCode = '' + e.which;
-    console.log(keyCode);
-    console.log(typeof keyCode);
     $('.soundItem[data-keycode="' + keyCode + '"]').click();
   });
 }
