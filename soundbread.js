@@ -13,7 +13,8 @@ function init()
   var sounds = [
       {src: "crickets.mp3", id: 'crickets'},
       {src: "downer.mp3", id: 'downer'},
-      {src: "rimshot.mp3", id: 'rimshot'}
+      {src: "rimshot.mp3", id: 'rimshot'},
+      {src: "Last_Post.ogg", id: 'lastpost'}
   ];
 
   createjs.Sound.addEventListener("fileload", createjs.proxy(soundLoaded, this));
