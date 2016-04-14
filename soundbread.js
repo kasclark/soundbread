@@ -11,7 +11,9 @@ function init()
   var assetsPath = "./audio/";
 
   var sounds = [
-    {src: "crickets.mp3", id: 'crickets'}
+      {src: "crickets.mp3", id: 'crickets'},
+      {src: "downer.mp3", id: 'downer'},
+      {src: "rimshot.mp3", id: 'rimshot'}
   ];
 
   createjs.Sound.addEventListener("fileload", createjs.proxy(soundLoaded, this));
