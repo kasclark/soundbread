@@ -14,11 +14,7 @@ function init()
       {src: "crickets.mp3", id: 'crickets'},
       {src: "downer.mp3", id: 'downer'},
       {src: "rimshot.mp3", id: 'rimshot'},
-<<<<<<< HEAD
-      {src: "gaaay.mp3", id: 'gaaay'}
-=======
       {src: "Last_Post.ogg", id: 'lastpost'}
->>>>>>> edwinschaap/gh-pages
   ];
 
   createjs.Sound.addEventListener("fileload", createjs.proxy(soundLoaded, this));
