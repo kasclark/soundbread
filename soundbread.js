@@ -15,7 +15,7 @@ function init()
       {src: "downer.mp3", id: 'downer'},
       {src: "rimshot.mp3", id: 'rimshot'},
       {src: "gaaay.mp3", id: 'gaaay'},
-      {src: "shame.mp3"}
+      {src: "shame.mp3", id: 'shame'}
   ];
 
   createjs.Sound.addEventListener("fileload", createjs.proxy(soundLoaded, this));
